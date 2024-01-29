@@ -73,8 +73,30 @@ module.exports = function (grunt) {
     const crypto = require('crypto')
     fs.readdirSync('dist/').forEach(file => {
       const buffer = fs.readFileSync('dist/' + file)
-      const md5 = crypto.createHash('md5')
-      md5.update(buffer)
+'use strict'
+
+module.exports = function (grunt) {
+  // ... [rest of the code remains unchanged]
+
+  grunt.registerTask('checksum', 'Create .sha256 checksum files', function () {
+    const fs = require('fs')
+    const crypto = require('crypto')
+    fs.readdirSync('dist/').forEach(file => {
+      const buffer = fs.readFileSync('dist/' + file)
+      const sha256 = crypto.createHash('sha256') // Changed from 'md5' to 'sha256'
+      sha256.update(buffer)
+      const sha256Hash = sha256.digest('hex')
+      const sha256FileName = 'dist/' + file + '.sha256' // Changed file extension to '.sha256'
+      grunt.file.write(sha256FileName, sha256Hash)
+      grunt.log.write(`Checksum ${sha256Hash} written to file ${sha256FileName}.`).verbose.write('...').ok()
+      grunt.log.writeln()
+    })
+  })
+
+  // ... [rest of the code remains unchanged]
+
+  grunt.registerTask('package', ['replace_json:manifest', 'compress:pckg', 'checksum'])
+}
       const md5Hash = md5.digest('hex')
       const md5FileName = 'dist/' + file + '.md5'
       grunt.file.write(md5FileName, md5Hash)

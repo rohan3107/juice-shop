@@ -83,8 +83,8 @@ describe('verify', () => {
   describe('accessControlChallenges', () => {
     it('"scoreBoardChallenge" is solved when the 1px.png transpixel is requested', () => {
       challenges.scoreBoardChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/public/images/padding/1px.png'
-
+req.url = 'https://juice-sh.op/public/images/padding/1px.png'
+req.url = 'https://juice-sh.op/public/images/padding/1px.png'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.scoreBoardChallenge.solved).to.equal(true)
@@ -92,8 +92,8 @@ describe('verify', () => {
 
     it('"adminSectionChallenge" is solved when the 19px.png transpixel is requested', () => {
       challenges.adminSectionChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/public/images/padding/19px.png'
-
+req.url = 'https://juice-sh.op/public/images/padding/19px.png'
+req.url = 'https://juice-sh.op/public/images/padding/19px.png'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.adminSectionChallenge.solved).to.equal(true)
@@ -101,8 +101,8 @@ describe('verify', () => {
 
     it('"tokenSaleChallenge" is solved when the 56px.png transpixel is requested', () => {
       challenges.tokenSaleChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/public/images/padding/56px.png'
-
+req.url = 'https://juice-sh.op/public/images/padding/56px.png'
+req.url = 'https://juice-sh.op/public/images/padding/56px.png'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.tokenSaleChallenge.solved).to.equal(true)
@@ -110,8 +110,8 @@ describe('verify', () => {
 
     it('"extraLanguageChallenge" is solved when the Klingon translation file is requested', () => {
       challenges.extraLanguageChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/public/i18n/tlh_AA.json'
-
+req.url = 'https://juice-sh.op/public/i18n/tlh_AA.json'
+req.url = 'https://juice-sh.op/public/i18n/tlh_AA.json'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.extraLanguageChallenge.solved).to.equal(true)
@@ -120,8 +120,8 @@ describe('verify', () => {
     it('"retrieveBlueprintChallenge" is solved when the blueprint file is requested', () => {
       challenges.retrieveBlueprintChallenge = { solved: false, save }
       cache.retrieveBlueprintChallengeFile = 'test.dxf'
-      req.url = 'http://juice-sh.op/public/images/products/test.dxf'
-
+req.url = 'https://juice-sh.op/public/images/products/test.dxf'
+req.url = 'https://juice-sh.op/public/images/products/test.dxf'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.retrieveBlueprintChallenge.solved).to.equal(true)
@@ -129,8 +129,8 @@ describe('verify', () => {
 
     it('"missingEncodingChallenge" is solved when the crazy cat photo is requested', () => {
       challenges.missingEncodingChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg'
-
+req.url = 'https://juice-sh.op/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg'
+req.url = 'https://juice-sh.op/public/images/uploads/%F0%9F%98%BC-%23zatschi-%23whoneedsfourlegs-1572600969477.jpg'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.missingEncodingChallenge.solved).to.equal(true)
@@ -138,8 +138,8 @@ describe('verify', () => {
 
     it('"accessLogDisclosureChallenge" is solved when any server access log file is requested', () => {
       challenges.accessLogDisclosureChallenge = { solved: false, save }
-      req.url = 'http://juice-sh.op/support/logs/access.log.2019-01-15'
-
+req.url = 'https://juice-sh.op/support/logs/access.log.2019-01-15'
+req.url = 'https://juice-sh.op/support/logs/access.log.2019-01-15'
       verify.accessControlChallenges()(req, res, next)
 
       expect(challenges.accessLogDisclosureChallenge.solved).to.equal(true)
